@@ -2,7 +2,11 @@ Before you start
 1. If using wsl (Windows Subsystem for Linux), you may need to change the wsl version to 1 as authentication may fail on version 2:
     e.g wsl --set-version Ubuntu 1
     This can take 30 minutes+ to update.
-2. Create python venv and pip install -r requirements.txt
+2. Create python -m venv venv 
+   source venv/bin/activate
+   cd ../dnac-rename-sites
+3. install python packages
+   pip install -r requirements.txt
 
 Script Execution Steps
 
