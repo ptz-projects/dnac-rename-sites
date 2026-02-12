@@ -12,50 +12,50 @@ Script Execution Steps
 
 1. Configuration & Setup
     Load credentials for .env file:
-        Catalyst Center URL
-        Username/Password
-        Max concurrent requests (default: 10)
-        Spreadsheet path
-        Test mode flag. Setting to true will execute the first site in the spreadsheet only.
-    Update area_mapping.xlsx under the dnac-rename-sites folder. 
-    Remove examples and add Name mappings in Excel/CSV spreadsheet 
-    (Column A = current name, Column B = new name). Add one row for testing.
+        Catalyst Center URL\
+        Username/Password\
+        Max concurrent requests (default: 10)\
+        Spreadsheet path\
+        Test mode flag. Setting to true will execute the first site in the spreadsheet only.\
+    Update area_mapping.xlsx under the dnac-rename-sites folder.\ 
+    Remove examples and add Name mappings in Excel/CSV spreadsheet \
+    (Column A = current name, Column B = new name). Add one row for testing.\
     Python code to run: area-name-update.py
 
 2. Authentication
 
-    Connect to Catalyst Center
-    Obtain authentication token using Basic Auth
-    Store token in headers for subsequent API calls
+    Connect to Catalyst Center\
+    Obtain authentication token using Basic Auth\
+    Store token in headers for subsequent API calls\
 
 
 3. Fetch All Areas
 
-    Retrieve complete site hierarchy from Catalyst Center
-    Parse flat list response to extract:
-        Area ID (UUID)
-        Area name
-        Full hierarchy path (e.g., "Global/Region/Area1")
-    Filter to include only areas (exclude buildings/floors)
+    Retrieve complete site hierarchy from Catalyst Center\
+    Parse flat list response to extract:\
+        Area ID (UUID)\
+        Area name\
+        Full hierarchy path (e.g., "Global/Region/Area1")\
+    Filter to include only areas (exclude buildings/floors)\
     Include "Global" in list (needed for parent ID lookups)
 
 
 4. Match & Filter Areas
 
-    Compare Catalyst Center areas against spreadsheet mappings
-    Build list of areas to update
-    Skip areas where:
-        Name is unchanged
-        Name not in spreadsheet
-        Missing hierarchy information
+    Compare Catalyst Center areas against spreadsheet mappings\
+    Build list of areas to update\
+    Skip areas where:\
+        Name is unchanged\
+        Name not in spreadsheet\
+        Missing hierarchy information\
         Area is "Global" (cannot be renamed)
 
 
 5. Test Mode (Optional)
 
-    If TEST_MODE=true:
-        Update only the first matching area
-        Validate API request/response
+    If TEST_MODE=true:\
+        Update only the first matching area\
+        Validate API request/response\
         Exit after test
 
 
@@ -76,21 +76,21 @@ For each area to update:
 
 7. Progress Tracking
 
-    Log each update attempt (success/failure)
-    Show progress every 10 areas
-    Track statistics:
-        Total areas retrieved
-        Areas in mapping
-        Successful updates
-        Failed updates
-        Skipped areas
+    Log each update attempt (success/failure)\
+    Show progress every 10 areas\
+    Track statistics:\
+        Total areas retrieved\
+        Areas in mapping\
+        Successful updates\
+        Failed updates\
+        Skipped areas\
 
 
 8. Summary Report
 
-    Display execution summary
-    Log warnings for failures
-    Output to console and log file
+    Display execution summary\
+    Log warnings for failures\
+    Output to console and log file\
 
 
 
