@@ -83,14 +83,14 @@ For each area to update:
         Areas in mapping\
         Successful updates\
         Failed updates\
-        Skipped areas\
+        Skipped areas
 
 
 8. Summary Report
 
     Display execution summary\
     Log warnings for failures\
-    Output to console and log file\
+    Output to console and log file
 
 
 
